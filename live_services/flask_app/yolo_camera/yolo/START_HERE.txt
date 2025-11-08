@@ -1,0 +1,97 @@
+================================================================
+🎯 START HERE - Complete Setup Guide
+================================================================
+
+GOAL: Run server so clients can use camera without any setup
+
+================================================================
+STEP 1: Install Dependencies (One-time)
+================================================================
+
+pip install -r requirements.txt
+
+================================================================
+STEP 2: Set Your YOLO Model Path (One-time)
+================================================================
+
+Open app.py, line 18:
+    MODEL_PATH = "path/to/your/best.pt"
+
+Change to your model path.
+
+================================================================
+STEP 3: Run with HTTPS (EASIEST METHOD!)
+================================================================
+
+Run this command:
+
+    chmod +x start_https_simple.sh
+    ./start_https_simple.sh
+
+Wait 10 seconds, you'll see:
+
+    ✅ YOUR HTTPS URL IS READY!
+    
+    🌐 https://abc-xyz-123.trycloudflare.com
+
+================================================================
+STEP 4: Share URL with Clients
+================================================================
+
+Send the HTTPS URL to your clients.
+
+They just:
+    1. Open the URL in browser
+    2. Click "Live Camera Detection"
+    3. Allow camera permissions
+    4. Start detecting!
+
+✅ NO setup needed on client side!
+✅ Works on mobile and desktop!
+✅ Camera works automatically!
+
+================================================================
+THAT'S IT!
+================================================================
+
+Server is running with HTTPS.
+Clients can access from anywhere.
+Camera works for everyone.
+
+No browser configuration needed.
+No command line for clients.
+Just works! 🎉
+
+================================================================
+STOPPING THE SERVER:
+================================================================
+
+Press Ctrl+C in terminal
+
+================================================================
+TROUBLESHOOTING:
+================================================================
+
+Q: "google-chrome: command not found"
+A: Ignore this - it's just trying to open browser
+   The server still works! Use the HTTPS URL.
+
+Q: "cloudflared: command not found"
+A: Script will auto-install. Run again.
+
+Q: Camera not working?
+A: Make sure you're using the HTTPS URL, not HTTP
+
+Q: Can I use my own domain?
+A: Yes, see HTTPS_SETUP.md for Let's Encrypt setup
+
+================================================================
+FULL COMMAND FOR COPY-PASTE:
+================================================================
+
+cd /path/to/your/yolo/folder
+chmod +x start_https_simple.sh
+./start_https_simple.sh
+
+================================================================
+

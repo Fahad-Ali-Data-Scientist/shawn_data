@@ -1,0 +1,89 @@
+================================================================
+🚀 QUICK START - HTTPS Setup (Easiest Way!)
+================================================================
+
+For camera to work on any device, you need HTTPS.
+Here's the EASIEST way:
+
+================================================================
+METHOD 1: Cloudflare Tunnel (NO SIGNUP REQUIRED!) ⭐
+================================================================
+
+Just run this command:
+
+    ./start_https_simple.sh
+
+That's it! You'll get a URL like:
+    https://xyz-abc-123.trycloudflare.com
+
+✅ No account needed
+✅ No configuration
+✅ Works immediately
+✅ Free unlimited
+
+Share this URL with anyone - camera works instantly!
+
+================================================================
+METHOD 2: ngrok (Needs free signup)
+================================================================
+
+1. Install ngrok:
+   
+   wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+   tar xvzf ngrok-v3-stable-linux-amd64.tgz
+   sudo mv ngrok /usr/local/bin/
+
+2. Get free authtoken:
+   
+   Visit: https://dashboard.ngrok.com/signup
+   Copy your token
+
+3. Set token:
+   
+   ngrok config add-authtoken YOUR_TOKEN
+
+4. Run:
+   
+   ./setup_https_ngrok.sh
+
+You'll get: https://abc123.ngrok.io
+
+================================================================
+WHAT CLIENTS SEE:
+================================================================
+
+Clients just:
+1. Open your HTTPS URL
+2. Click "Live Camera Detection"  
+3. Allow camera
+4. Done!
+
+NO browser configuration needed!
+NO command line for clients!
+Just works! 🎉
+
+================================================================
+COMPARISON:
+================================================================
+
+Cloudflare Tunnel:
+  ✅ No signup
+  ✅ Instant
+  ✅ Free forever
+  ⚠️  URL changes each time
+
+ngrok:
+  ✅ Stable URL (paid plan)
+  ✅ More features
+  ⚠️  Requires signup
+
+================================================================
+RECOMMENDED: Start with Cloudflare Tunnel!
+================================================================
+
+    ./start_https_simple.sh
+
+Then share the URL you get!
+
+================================================================
+

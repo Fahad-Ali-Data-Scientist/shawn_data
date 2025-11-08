@@ -1,0 +1,114 @@
+================================================================
+HOW TO ENABLE CAMERA ON HTTP (For Development Only)
+================================================================
+
+By default, browsers block camera on HTTP for security.
+Here's how to enable it for testing:
+
+================================================================
+🔧 CHROME / EDGE (Recommended)
+================================================================
+
+METHOD 1: Command Line Flag (Easiest)
+--------------------------------------
+Windows:
+1. Close Chrome completely
+2. Create shortcut to Chrome
+3. Right-click > Properties
+4. In "Target" field, add at end:
+   --unsafely-treat-insecure-origin-as-secure="http://YOUR_SERVER_IP:5000" --user-data-dir=C:\temp\chrome
+
+   Example:
+   "C:\Program Files\Google\Chrome\Application\chrome.exe" --unsafely-treat-insecure-origin-as-secure="http://192.168.1.100:5000" --user-data-dir=C:\temp\chrome
+
+5. Click OK
+6. Launch Chrome from this shortcut
+7. Open http://YOUR_SERVER_IP:5000
+
+
+Linux/Mac:
+google-chrome --unsafely-treat-insecure-origin-as-secure="http://YOUR_SERVER_IP:5000" --user-data-dir=/tmp/chrome &
+
+
+METHOD 2: Chrome Flags (Alternative)
+-------------------------------------
+1. Open Chrome
+2. Go to: chrome://flags
+3. Search: "Insecure origins treated as secure"
+4. Add: http://YOUR_SERVER_IP:5000
+5. Select: "Enabled"
+6. Restart Chrome
+7. Open http://YOUR_SERVER_IP:5000
+
+
+================================================================
+🦊 FIREFOX
+================================================================
+
+1. Open Firefox
+2. Type in address bar: about:config
+3. Accept warning
+4. Search: media.devices.insecure.enabled
+5. Set to: true
+6. Search: media.getusermedia.insecure.enabled
+7. Set to: true
+8. Restart Firefox
+9. Open http://YOUR_SERVER_IP:5000
+
+
+================================================================
+📱 MOBILE (ANDROID CHROME)
+================================================================
+
+1. Connect phone via USB to computer
+2. On computer, open Chrome: chrome://inspect
+3. Enable "Port forwarding"
+4. Add: 5000 -> localhost:5000
+5. On phone, open: localhost:5000
+6. Camera will work!
+
+Alternative:
+Use Chrome with flag:
+chrome://flags/#unsafely-treat-insecure-origin-as-secure
+
+
+================================================================
+📱 MOBILE (iOS Safari)
+================================================================
+
+iOS Safari requires HTTPS. No workaround available.
+Use video upload feature instead.
+
+
+================================================================
+⚠️ IMPORTANT NOTES
+================================================================
+
+1. These settings are for DEVELOPMENT/TESTING only
+2. Don't use on public/production servers
+3. Reset settings after testing
+4. For production, use proper HTTPS
+
+================================================================
+🚀 QUICK TEST COMMAND
+================================================================
+
+# Windows (Replace YOUR_IP)
+start chrome --unsafely-treat-insecure-origin-as-secure="http://192.168.1.100:5000" --user-data-dir=C:\temp\chrome
+
+# Linux/Mac
+google-chrome --unsafely-treat-insecure-origin-as-secure="http://192.168.1.100:5000" --user-data-dir=/tmp/chrome
+
+================================================================
+✅ VERIFY IT WORKS
+================================================================
+
+1. Close ALL browser windows
+2. Launch browser with flag
+3. Open http://YOUR_SERVER_IP:5000/live-camera
+4. Click "Start Camera"
+5. Grant permissions
+6. Camera should work!
+
+================================================================
+

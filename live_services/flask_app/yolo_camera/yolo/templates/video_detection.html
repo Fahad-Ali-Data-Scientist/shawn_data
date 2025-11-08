@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Detection - YOLO System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 Video Object Detection</h1>
+            <p>Upload and process videos with advanced object detection & tracking</p>
+            <div style="margin-top: 16px;">
+                <a href="/" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">
+                    ← Back to Home
+                </a>
+            </div>
+        </header>
+
+        <div class="main-card">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('image', event)">
+                    📸 Image Detection
+                </div>
+                <div class="tab" onclick="switchTab('video', event)">
+                    🎥 Video Detection
+                </div>
+                <div class="tab" onclick="switchTab('counting', event)">
+                    📊 Detection with Counting
+                </div>
+                <div class="tab" onclick="switchTab('queue', event)">
+                    📋 Job Queue
+                </div>
+            </div>
+
+            <div id="tab-image" class="tab-content active">
+                <h2>Image Object Detection</h2>
+                <p>Upload an image to detect and identify objects with bounding boxes</p>
+                
+                <div class="upload-area" id="image-upload-area" onclick="document.getElementById('image-input').click()">
+                    <div class="upload-icon">📤</div>
+                    <h3>Click to upload or drag & drop</h3>
+                    <p>Supported formats: JPG, PNG, JPEG</p>
+                    <input type="file" id="image-input" accept="image/*" onchange="handleImageUpload(this)">
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn" id="image-detect-btn" onclick="detectImage()" disabled>
+                        Detect Objects
+                    </button>
+                </div>
+
+                <div id="image-result" class="result-area">
+                    <h3>Detection Results</h3>
+                    <img id="result-image" class="result-image" src="" alt="Result">
+                    <div id="image-detections"></div>
+                </div>
+            </div>
+
+            <div id="tab-video" class="tab-content">
+                <h2>Video Object Detection</h2>
+                <p>Upload a video to detect objects in each frame</p>
+                
+                <div class="upload-area" id="video-upload-area" onclick="document.getElementById('video-input').click()">
+                    <div class="upload-icon">🎬</div>
+                    <h3>Click to upload video</h3>
+                    <p>Supported formats: MP4, AVI, MOV</p>
+                    <input type="file" id="video-input" accept="video/*" onchange="handleVideoUpload(this)">
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn" id="video-detect-btn" onclick="submitVideo()" disabled>
+                        Add to Queue
+                    </button>
+                </div>
+            </div>
+
+            <div id="tab-counting" class="tab-content">
+                <h2>Detection with Object Counting</h2>
+                <p>Track and count unique objects across frames using ByteTrack</p>
+                
+                <div class="upload-area" id="counting-upload-area" onclick="document.getElementById('counting-input').click()">
+                    <div class="upload-icon">📹</div>
+                    <h3>Click to upload video</h3>
+                    <p>Supported formats: MP4, AVI, MOV</p>
+                    <input type="file" id="counting-input" accept="video/*" onchange="handleCountingUpload(this)">
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn" id="counting-detect-btn" onclick="submitCounting()" disabled>
+                        Add to Queue
+                    </button>
+                </div>
+            </div>
+
+            <div id="tab-queue" class="tab-content">
+                <h2>Processing Queue</h2>
+                <p>All video processing jobs and their status</p>
+                
+                <div id="jobs-container"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 YOLO Detection System | Powered by Ultralytics YOLO</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/video_app.js') }}"></script>
+</body>
+</html>
+

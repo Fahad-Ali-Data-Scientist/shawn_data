@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Detection System - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .option-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .option-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .option-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .option-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .option-features {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+
+        .option-features li {
+            color: var(--text-secondary);
+            margin: 8px 0;
+            font-size: 0.9rem;
+            list-style: none;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .option-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .option-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover {
+            background: var(--primary-hover);
+            transform: scale(1.05);
+        }
+
+        .features-section {
+            background: var(--bg-secondary);
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <h1>🎯 YOLO Detection System</h1>
+            <p>Professional Real-Time Object Detection & Tracking Platform</p>
+        </div>
+
+        <div class="options-container">
+            <!-- Option 1: Video Upload -->
+            <div class="option-card" onclick="window.location.href='/video-detection'">
+                <span class="option-icon">🎬</span>
+                <div class="option-title">Video Upload Detection</div>
+                <div class="option-description">
+                    Upload pre-recorded videos for comprehensive object detection and tracking analysis
+                </div>
+                <ul class="option-features">
+                    <li>Support for multiple video formats</li>
+                    <li>Frame-by-frame object detection</li>
+                    <li>Advanced object tracking & counting</li>
+                    <li>Download processed videos</li>
+                    <li>Queue management system</li>
+                </ul>
+                <button class="option-btn">Start Video Detection</button>
+            </div>
+
+            <!-- Option 2: Live Camera -->
+            <div class="option-card" onclick="window.location.href='/live-camera'">
+                <span class="option-icon">📹</span>
+                <div class="option-title">Live Camera Detection</div>
+                <div class="option-description">
+                    Real-time object detection using your device camera with instant results
+                </div>
+                <ul class="option-features">
+                    <li>Real-time camera feed processing</li>
+                    <li>Live object detection & counting</li>
+                    <li>Interactive statistics panel</li>
+                    <li>Export to PDF, DOCX, or Excel</li>
+                    <li>Mobile device support</li>
+                </ul>
+                <button class="option-btn">Start Live Detection</button>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">High Performance</div>
+                    <div class="feature-text">
+                        Powered by YOLOv8 for fast and accurate real-time object detection
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Accurate Tracking</div>
+                    <div class="feature-text">
+                        ByteTrack integration for reliable multi-object tracking across frames
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Detailed Analytics</div>
+                    <div class="feature-text">
+                        Comprehensive statistics and export options for your detection results
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Mobile Friendly</div>
+                    <div class="feature-text">
+                        Responsive design works seamlessly on desktop and mobile devices
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 YOLO Detection System | Powered by Ultralytics YOLOv8</p>
+        </footer>
+    </div>
+</body>
+</html>
