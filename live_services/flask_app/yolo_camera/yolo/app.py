@@ -24,8 +24,8 @@ app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024
 # Initialize SocketIO for WebSocket support
 socketio = SocketIO(app, cors_allowed_origins="*", max_size=50 * 1024 * 1024)
 
-# MODEL_PATH = "/home/ubuntu/Annotations/pending/runs/train/yolov11l_merged_new/weights/best.pt"
-MODEL_PATH = '/home/ubuntu/Annotations/training/runs/train/yolov11l_merged_new2/weights/best.pt'  
+MODEL_PATH = '/home/ubuntu/additional_drive/shwan_data/yolo_training/runs/train/yolov11l_merged_new/weights/best.pt'
+# MODEL_PATH = '/home/ubuntu/Annotations/training/runs/train/yolov11l_merged_new2/weights/best.pt'  
 TRACKER_CFG = str(ROOT / "cfg/trackers/bytetrack.yaml")
 CONF_THRESHOLD = 0.25
 IOU_THRESHOLD = 0.45
